@@ -36,7 +36,7 @@ export const Td = styled.td`
         ${(props) => props.onlyWeb && "display: none"}
     }
 `;
-const Grid = ()=>{
+const Grid = ({users})=>{
     return(
     <Table>
         <Thead>
@@ -49,7 +49,19 @@ const Grid = ()=>{
             </Tr>
         </Thead>
         <Tbody>
-            
+            {users.map((item, i)=>(
+                <Tr key={i}>
+                    <Td width="30%">{item.NOME}</Td>
+                    <Td width="30%">{item.EMAIL}</Td>
+                    <Td width="20%">{item.TELEFONE}</Td>
+                    <Td alignCenter width="5%">
+                        <FaEdit/>
+                    </Td>
+                    <Td alignCenter width="5%">
+                        <FaTrash/>
+                    </Td>
+                </Tr>
+            ))}
         </Tbody>
     </Table>
     )
